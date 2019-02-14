@@ -1,0 +1,36 @@
+server:
+  port: 8082
+  compression:
+    enabled: true
+logging:
+  level:
+    root: INFO
+#    com.haiercash.hbpm.Listener.CrmExecuteListener: DEBUG
+  path: ./log
+#security:
+#  user:
+#    name: actuator
+#    password: admin@act
+spring:
+  application:
+    name: HBPM
+
+  datasource:
+    url: jdbc:mysql://10.166.104.167:3306/BPM
+    testWhileIdle: true
+    validationQuery: SELECT 1 from dual
+    username: bpm
+    password: 123456$Asd
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      show-sql: true
+      ddl-auto: none
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+camunda:
+  bpm:
+    auto-deployment-enabled: true
