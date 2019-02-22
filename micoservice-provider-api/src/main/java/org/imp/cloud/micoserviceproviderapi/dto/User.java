@@ -1,4 +1,4 @@
-package org.imp.cloud.micoserviceprovideruser.entity;
+package org.imp.cloud.micoserviceproviderapi.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

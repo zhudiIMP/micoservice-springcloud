@@ -22,10 +22,7 @@ public class UserController {
         User user1 = new User() ;
         user1.setAge(12);
         user1.setBalance(new BigDecimal(12));
-        user1.setName("zhang");
-        //return userRepository.findOne(new User());
-//        User user = userRepository.getOne(id);
-//        return user;
+        user1.setName("wang");
         return user1;
     }
 
