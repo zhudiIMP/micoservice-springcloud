@@ -1,15 +1,17 @@
-server:
-  port: 8093
 spring:
   application:
-    name: microservice-consumer-movie
+    name: micoservice-zuul
+
+server:
+  port: 5555
+
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8760/eureka/
-    register-with-eureka: true
   instance:
     prefer-ip-address: true
+
 ribbon:
   ConnectTimeout: 3000 #请求连接超时时间
   ReadTimeout: 5000 #请求处理的超时时间
@@ -18,4 +20,11 @@ ribbon:
   OkToRetryOnAllOperations: true #是否对所有操作请求都进行重试
   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #配置负载均衡策略
 
-
+zuul:
+  routes:
+    microservice-consumer-movie:
+      path: /consumerMovie/**
+      serviceId: microservice-consumer-movie
+    microservice-provider-user:
+      path: /providerUser/**
+      serviceId: microservice-provider-user

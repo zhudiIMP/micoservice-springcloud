@@ -17,6 +17,7 @@
         <module>micoservice-rabbitmq</module>
         <module>micoservice-BPM</module>
         <module>micoservice-provider-api</module>
+        <module>micoservice-zuul</module>
     </modules>
 
     <properties>
