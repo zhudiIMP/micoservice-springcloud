@@ -10,10 +10,10 @@ public class SendMessage {
     @Autowired
     private Sender sender;
 
-    @Scheduled(fixedDelay = 100, initialDelay = 50)
+    @Scheduled(fixedDelay = 1000, initialDelay = 500)
     public void send(){
         for(int i=0;i<5;i++){
-            System.out.println("send to mq:"+i);
+            //System.out.println("send to mq:"+i);
             sender.send("hello");
         }
 

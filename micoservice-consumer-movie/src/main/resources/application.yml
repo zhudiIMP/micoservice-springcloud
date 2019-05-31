@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: microservice-consumer-movie
+security:
+  enabled: false
 eureka:
   client:
     serviceUrl:

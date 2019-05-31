@@ -13,14 +13,19 @@ eureka:
     prefer-ip-address: true
 
 ribbon:
-  ConnectTimeout: 3000 #请求连接超时时间
-  ReadTimeout: 5000 #请求处理的超时时间
+  ConnectTimeout: 60000 #请求连接超时时间
+  ReadTimeout: 60000 #请求处理的超时时间
   MaxAutoRetries: 1 #对当前实例的重试次数
   MaxAutoRetriesNextServer: 2 #切换实例的重试次数
   OkToRetryOnAllOperations: true #是否对所有操作请求都进行重试
   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #配置负载均衡策略
 
 zuul:
+  retryable: true #重试机制
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
+
   routes:
     microservice-consumer-movie:
       path: /consumerMovie/**
@@ -28,3 +33,6 @@ zuul:
     microservice-provider-user:
       path: /providerUser/**
       serviceId: microservice-provider-user
+  ribbon:
+    eager-load:
+      enabled: true #饥饿加载

@@ -1,11 +1,22 @@
 server:
   port: 8760
 
+spring:
+  application:
+    name: micoservice-eureka-server
+
 eureka:
   instance:
     hostname: localhost
+    prefer-ip-address: true
   client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+    # 当Eureka Server节点在短时间内丢失过多的客户端时（可能发送了网络故障），
+    #那么这个节点将进入自我保护模式，不再注销任何微服务，当网络故障回复后，该节点会自动退出自我保护模式。
+    enable-self-preservation: true #自我保护模式
+    expected-client-renewal-interval-seconds: 0.85 #进入自我保护模式比值

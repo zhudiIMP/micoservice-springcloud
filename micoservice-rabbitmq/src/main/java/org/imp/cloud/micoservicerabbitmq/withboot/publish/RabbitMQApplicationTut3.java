@@ -1,13 +1,11 @@
 package org.imp.cloud.micoservicerabbitmq.withboot.publish;
 
-import org.springframework.amqp.core.Queue;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
-import org.springframework.context.annotation.Bean;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@EnableEurekaServer
+@EnableEurekaClient
 @SpringBootApplication
 @EnableScheduling
 public class RabbitMQApplicationTut3 {
