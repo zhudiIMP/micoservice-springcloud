@@ -1,4 +1,4 @@
-package org.imp.cloud.micoservicerabbitmq.withstream;
+package org.imp.cloud.micoserviceprovideruser.stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;

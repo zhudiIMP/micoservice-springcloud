@@ -10,6 +10,7 @@
 
     <modules>
         <module>micoservice-consumer-movie</module>
+        <module>micoservice-consumer-movie1</module>
         <module>micoservice-provider-user</module>
         <module>micoservice-provider-user1</module>
         <module>micoservice-server</module>

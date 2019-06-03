@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8080
 
 spring:
   rabbitmq:
@@ -31,6 +31,15 @@ spring:
           destination: hello_output_ex
           content-type: text/plain
           binder: myRabbit
+          group: hello
+      rabbit:
+        bindings:
+          hello_input: # channelName
+            consumer:
+              bindingRoutingKey: hello
+          hello_output:
+            producer:
+              routingKeyExpression: '''hello'''
 
 tutorial:
   client:

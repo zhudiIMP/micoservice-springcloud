@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.imp.cloud</groupId>
-    <artifactId>micoservice-consumer-movie</artifactId>
+    <artifactId>micoservice-consumer-movie1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>micoservice-consumer-movie</name>
+    <name>micoservice-consumer-movie1</name>
     <description></description>
 
     <parent>

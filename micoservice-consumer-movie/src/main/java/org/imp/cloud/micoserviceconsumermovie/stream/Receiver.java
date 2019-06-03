@@ -1,4 +1,4 @@
-package org.imp.cloud.micoservicerabbitmq.withstream;
+package org.imp.cloud.micoserviceconsumermovie.stream;
 
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.stereotype.Component;
