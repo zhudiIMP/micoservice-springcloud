@@ -25,14 +25,16 @@ spring:
                 virtual-host: ${spring.rabbitmq.virtual-host}
       bindings:
         hello_output: # channelName
-          destination: hello_output_ex # 表示要使用的Exchange名称定义
+          destination: hello_exchange # 表示要使用的Exchange名称定义
           content-type: text/plain # 设置消息类型，本次为对象json，如果是文本则设置“text/plain”
           binder: myRabbit # 设置要绑定的消息服务的具体设置
       rabbit:
         bindings:
           hello_output:
             producer:
+              ttl: 3000
               routingKeyExpression: '''hello'''
+              autoBindDlq: true
 eureka:
   client:
     serviceUrl:
