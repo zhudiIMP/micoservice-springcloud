@@ -13,7 +13,7 @@ public class SendMessage {
     private int count;
     @Scheduled(fixedDelay = 1000, initialDelay = 500)
     public void send(){
-        for(int i=0;i<5;i++){
+        for(int i=0;i<1;i++){
             sender.send("hello,your number is :"+count++);
         }
 

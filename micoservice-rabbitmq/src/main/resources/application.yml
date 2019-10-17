@@ -3,11 +3,13 @@ server:
 
 spring:
   rabbitmq:
-    host: 10.166.104.129
+    host: 10.166.104.226
     port: 5672
     username: guest
     password: guest
     virtual-host: /
+    publisher-returns: true
+    publisher-confirms: true
 
   cloud:
     stream:
@@ -27,19 +29,22 @@ spring:
           destination: hello_output_ex # 表示要使用的Exchange名称定义
           content-type: text/plain # 设置消息类型，本次为对象json，如果是文本则设置“text/plain”
           binder: myRabbit # 设置要绑定的消息服务的具体设置
+          group: hello
         hello_input:
           destination: hello_output_ex
           content-type: text/plain
           binder: myRabbit
           group: hello
-      rabbit:
-        bindings:
-          hello_input: # channelName
-            consumer:
-              bindingRoutingKey: hello
-          hello_output:
-            producer:
-              routingKeyExpression: '''hello'''
+#      rabbit:
+#        bindings:
+#          hello_input: # channelName
+#            consumer:
+#              bindingRoutingKey: hello
+#          hello_output:
+#            producer:
+#              routingKeyExpression: '''hello'''
+
+management.endpoints.web.exposure.include: bindings #通过Actuator组件实现对binding的控制
 
 tutorial:
   client:
