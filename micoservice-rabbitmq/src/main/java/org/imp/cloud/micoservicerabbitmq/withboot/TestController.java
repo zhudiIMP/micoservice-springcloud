@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @Autowired
     private RabbitListenerEndpointRegistry rabbitListenerEndpointRegistry;
+    @Autowired
+    private MQProducer producer;
 
     @RequestMapping(value = "/stopmq/{id}",method = RequestMethod.GET)
     public void stopRabbitMqListener(@PathVariable("id") String id){
@@ -29,5 +31,10 @@ public class TestController {
             container.start();
             System.out.println("启动id为："+id+",的mq监听");
         }
+    }
+
+    @RequestMapping(value = "/sendmq/{id}",method = RequestMethod.GET)
+    public void sendmq(@PathVariable("id") String id) throws Exception{
+        producer.send("12345");
     }
 }

@@ -10,7 +10,13 @@ spring:
     virtual-host: /
     publisher-returns: true
     publisher-confirms: true
-
+    template:
+      mandatory: true
+    listener:
+      simple:
+        concurrency: 5
+        max-concurrency: 10
+        acknowledge-mode: manual
   cloud:
     stream:
       binders: # 在此处配置要绑定的rabbitmq的服务信息；
