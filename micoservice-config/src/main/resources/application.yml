@@ -1,0 +1,11 @@
+spring:
+  application:
+    name:  microservicecloud-config
+    port: 8080
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zhudiIMP/springcloudconfig.git #GitHub上面的git仓库名字
+          username: zhudicool@163.com
+          password: 195037264asd

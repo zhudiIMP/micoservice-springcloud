@@ -1,0 +1,13 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: microservice-consumer-movie
+  cloud:
+    config:
+      uri: http://localhost:8080
+      label: master
+      profile: dev
+      name: consumermovie
+
+
