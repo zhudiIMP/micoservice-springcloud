@@ -20,7 +20,7 @@ public class MQConsumer {
             value = @Queue(value = "queue-1", durable="true"),
             exchange = @Exchange(value = "exchange-1", durable="true",type= "topic",ignoreDeclarationExceptions = "true"),
             key = "springboot.*"
-    ), id = "aaa",autoStartup="false"
+    ), id = "aaa",autoStartup="true"
     )
     @RabbitHandler
     public void onMessage(Message message, Channel channel,@Header(AmqpHeaders.DELIVERY_TAG) long deliveryTag) throws Exception {

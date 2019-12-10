@@ -3,48 +3,18 @@ server:
 spring:
   application:
     name: microservice-consumer-movie
-  #rabbitmq 配置
-  rabbitmq:
-    host: 10.166.104.129
-    port: 5672
-    username: guest
-    password: guest
-    virtual-host: /
-  cloud:
-    stream:
-      binders: # 在此处配置要绑定的rabbitmq的服务信息；
-        myRabbit: # 表示定义的名称，用于于binding整合,对应bindings的binder配置项
-          type: rabbit # 消息组件类型
-          environment: # 设置rabbitmq的相关的环境配置
-            spring:
-              rabbitmq:
-                host: ${spring.rabbitmq.host}
-                port: ${spring.rabbitmq.port}
-                username: ${spring.rabbitmq.username}
-                password: ${spring.rabbitmq.password}
-                virtual-host: ${spring.rabbitmq.virtual-host}
-      bindings:
-        hello_input:
-          destination: hello_exchange
-          content-type: text/plain
-          binder: myRabbit
-          group: hello
-      rabbit:
-        bindings:
-          hello_input: # channelName
-            consumer:
-              bindingRoutingKey: hello
-              autoBindDlq: true
-              republishToDlq: true
 security:
   enabled: false
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8760/eureka/
+      defaultZone: http://localhost:8761/eureka/
     register-with-eureka: true
   instance:
     prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
 ribbon:
   ConnectTimeout: 3000 #请求连接超时时间
   ReadTimeout: 5000 #请求处理的超时时间
