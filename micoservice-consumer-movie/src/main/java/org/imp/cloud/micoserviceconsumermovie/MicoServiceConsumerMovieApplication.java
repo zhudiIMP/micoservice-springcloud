@@ -12,8 +12,9 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableFeignClients
+@EnableFeignClients(basePackages= {"org.imp.cloud"})
 @ComponentScan(basePackages= {"org.imp.cloud"})
+@EnableHystrix
 public class MicoServiceConsumerMovieApplication {
 
     @LoadBalanced

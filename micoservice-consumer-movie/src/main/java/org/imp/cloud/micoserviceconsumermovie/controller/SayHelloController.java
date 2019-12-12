@@ -23,7 +23,7 @@ public class SayHelloController {
         return restTemplate.getForEntity("http://MICROSERVICE-PROVIDER-USER/sayHello",String.class).getBody();
     }
 
-    @RequestMapping(value = "/simple/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/fallback/{id}", method = RequestMethod.GET)
     public User findById(@PathVariable("id") int id){
         return providerService.findById(id);
     }
