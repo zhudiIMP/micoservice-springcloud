@@ -24,7 +24,7 @@ public class SayHelloController {
     }
 
     @RequestMapping(value = "/simple/{id}", method = RequestMethod.GET)
-    public User findById(@PathVariable("id") Long id){
+    public User findById(@PathVariable("id") int id){
         return providerService.findById(id);
     }
 }

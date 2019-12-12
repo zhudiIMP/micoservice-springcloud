@@ -1,5 +1,5 @@
 server:
-  port: 8092
+  port: 8082
 spring:
   application:
     name: microservice-consumer-movie
@@ -13,6 +13,7 @@ eureka:
     register-with-eureka: true
   instance:
     prefer-ip-address: true
+
 ribbon:
   ConnectTimeout: 3000 #请求连接超时时间
   ReadTimeout: 5000 #请求处理的超时时间

@@ -11,10 +11,12 @@ import java.math.BigDecimal;
 public class UserController implements ProviderService {
 
     @RequestMapping(value = "/simple/{id}",method = RequestMethod.GET)
-    public User findById(@PathVariable("id") Long id) {
+    public User findById(@PathVariable("id") int id) {
         User user = new User() ;
-        user.setAge(12);
-        user.setBalance(new BigDecimal(12));
+        user.setId(id);
+        user.setUsername("user");
+        user.setAge(id);
+        user.setBalance(new BigDecimal(id));
         user.setName("user");
         int i = 1/0;
         return user;

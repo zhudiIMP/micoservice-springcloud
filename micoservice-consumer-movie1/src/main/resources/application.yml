@@ -12,9 +12,7 @@ eureka:
     register-with-eureka: true
   instance:
     prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
+
 ribbon:
   ConnectTimeout: 3000 #请求连接超时时间
   ReadTimeout: 5000 #请求处理的超时时间

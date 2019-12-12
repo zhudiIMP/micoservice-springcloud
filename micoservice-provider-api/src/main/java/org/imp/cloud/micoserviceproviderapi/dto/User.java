@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 public class User implements Serializable {
 
-    public User(Long id, String username) {
+    public User(int id, String username) {
         super();
         this.id = id;
         this.username = username;
@@ -14,17 +14,17 @@ public class User implements Serializable {
         super();
     }
 
-    private Long id;
+    private int id;
     private String username;
     private String name;
     private int age;
     private BigDecimal balance;
 
-    public Long getId() {
+    public int getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -8,10 +8,12 @@ import java.math.BigDecimal;
 
 @Component
 public class ProviderServiceFallback implements ProviderService {
-    public User findById(Long id){
+    public User findById(int id){
         User user = new User() ;
-        user.setAge(12);
-        user.setBalance(new BigDecimal(12));
+        user.setId(id);
+        user.setUsername("fallback");
+        user.setAge(id);
+        user.setBalance(new BigDecimal(id));
         user.setName("fallback");
         return user;
     }

@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(value = "microservice-provider-user",fallback = ProviderServiceFallback.class)
 public interface ProviderService {
     @RequestMapping(value = "/simple/{id}",method = RequestMethod.GET)
-    User findById(@PathVariable("id") Long id);
+    User findById(@PathVariable("id") int id);
 }
