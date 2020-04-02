@@ -1,5 +1,7 @@
 package org.imp.cloud.micoserviceconsumermovie.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import org.imp.cloud.micoserviceconsumermovie.fallback.HystrixCommandExample;
 import org.imp.cloud.micoserviceproviderapi.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,13 +20,20 @@ public class SayHelloController {
     @Autowired
     ProviderService providerService;
 
+    @Autowired
+    HystrixCommandExample hystrixCommandExample;
+
     @RequestMapping(value = "/sayHello", method = RequestMethod.GET)
     public String sayHello(){
         return restTemplate.getForEntity("http://MICROSERVICE-PROVIDER-USER/sayHello",String.class).getBody();
     }
 
-    @RequestMapping(value = "/fallback/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/feignfallback/{id}", method = RequestMethod.GET)
     public User findById(@PathVariable("id") int id){
         return providerService.findById(id);
+    }
+    @RequestMapping(value = "/hystrixcommandfallback/{name}", method = RequestMethod.GET)
+    public String getName(@PathVariable("name") String name) throws Exception{
+        return hystrixCommandExample.getName(name);
     }
 }

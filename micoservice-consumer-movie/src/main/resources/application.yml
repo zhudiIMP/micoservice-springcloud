@@ -10,7 +10,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
+    register-with-eureka: false
   instance:
     prefer-ip-address: true
 feign:
