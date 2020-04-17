@@ -3,9 +3,17 @@ server:
 spring:
   application:
     name: microservice-consumer-movie
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8000"
 
-security:
-  enabled: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 eureka:
   client:
     serviceUrl:
