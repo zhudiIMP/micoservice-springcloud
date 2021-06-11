@@ -24,6 +24,7 @@
 
     <properties>
         <spring.cloud.version>Greenwich.RC2</spring.cloud.version>
+        <lombok.version>1.18.8</lombok.version>
     </properties>
 
     <parent>
@@ -42,13 +43,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-
-    </dependencies>
 
     <build>
         <plugins>
